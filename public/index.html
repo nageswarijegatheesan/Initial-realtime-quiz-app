@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choose Your Login | Realtime Quiz</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="login-body">
+  <main class="login-shell">
+    <section class="glass-card">
+      <h1 class="login-title">Choose Your Login</h1>
+      <p class="login-subtitle">Create a live quiz as an admin or join a session with a code or shared link.</p>
+      <div class="choice-grid">
+        <a class="choice-card" href="/admin" aria-label="Admin Login">
+          <span class="choice-icon" id="adminIcon"></span>
+          <span>
+            <h2>Admin Login</h2>
+            <p>Register, create quizzes, start sessions, and control question flow live.</p>
+          </span>
+        </a>
+        <a class="choice-card" href="/participant" aria-label="Participant Login">
+          <span class="choice-icon" id="participantIcon"></span>
+          <span>
+            <h2>Participant Login</h2>
+            <p>Enter your name and quiz code, then answer each question in real time.</p>
+          </span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+  <script>
+    document.getElementById("adminIcon").innerHTML = icon("shield");
+    document.getElementById("participantIcon").innerHTML = icon("user");
+  </script>
+</body>
+</html>

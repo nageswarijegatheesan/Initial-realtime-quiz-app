@@ -1,0 +1,10 @@
+{
+  "name": "real-time-quiz-application",
+  "version": "1.0.0",
+  "description": "Realtime quiz application with admin-created quizzes, participant links, QR codes, live scoring, and leaderboard.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  }
+}

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard | Realtime Quiz</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark">Q</span>
+        <span>Realtime Quiz Admin</span>
+      </a>
+      <button class="btn ghost hidden" id="logoutBtn">Logout</button>
+    </header>
+
+    <main id="authView" class="grid-2">
+      <section class="panel section stack">
+        <div>
+          <h1>Admin Access</h1>
+          <p class="muted">Use your own username and password. New admins can register instantly.</p>
+        </div>
+        <div class="tabs">
+          <button class="tab active" data-auth-tab="login">Login</button>
+          <button class="tab" data-auth-tab="register">Register</button>
+        </div>
+        <form id="loginForm" class="stack">
+          <label class="field"><span>Username</span><input name="username" autocomplete="username" required></label>
+          <label class="field"><span>Password</span><input name="password" type="password" autocomplete="current-password" required></label>
+          <button class="btn primary" type="submit">Login</button>
+        </form>
+        <form id="registerForm" class="stack hidden">
+          <label class="field"><span>Username</span><input name="username" autocomplete="username" minlength="3" required></label>
+          <label class="field"><span>Password</span><input name="password" type="password" autocomplete="new-password" minlength="4" required></label>
+          <button class="btn primary" type="submit">Create Account</button>
+        </form>
+        <div id="adminStatus" class="status"></div>
+      </section>
+      <section class="panel section stack">
+        <h2>Live Control</h2>
+        <p class="muted">Admins can start a quiz, move to the next question immediately, or skip a question. Participants update instantly.</p>
+        <div class="notice">No fixed default credentials are used. Accounts are created by users and stored securely with password hashes.</div>
+      </section>
+    </main>
+
+    <main id="dashboardView" class="grid-2 hidden">
+      <section class="panel section stack">
+        <div class="row between">
+          <div>
+            <h1>Create Quiz</h1>
+            <p class="muted">Add any number of MCQ questions.</p>
+          </div>
+          <button class="btn ghost" id="addQuestionBtn" type="button"></button>
+        </div>
+        <form id="quizForm" class="stack">
+          <label class="field"><span>Quiz Title</span><input name="title" placeholder="JavaScript Basics" required></label>
+          <label class="field"><span>Seconds Per Question</span><input name="timePerQuestion" type="number" min="5" max="120" value="25" required></label>
+          <div id="questionList" class="stack"></div>
+          <button class="btn primary" type="submit">Save and Publish Quiz</button>
+        </form>
+      </section>
+
+      <section class="stack">
+        <div class="panel section stack">
+          <div class="row between">
+            <div>
+              <h2>Your Quizzes</h2>
+              <p class="muted">Share links or QR codes with participants.</p>
+            </div>
+            <button class="btn ghost" id="refreshBtn" type="button">Refresh</button>
+          </div>
+          <div id="quizList" class="stack"></div>
+        </div>
+
+        <div class="panel section stack">
+          <h2>Session Control</h2>
+          <div id="sessionInfo" class="muted">Select a quiz to manage its live session.</div>
+          <div class="row">
+            <button class="btn primary" id="startBtn" disabled></button>
+            <button class="btn ghost" id="nextBtn" disabled></button>
+            <button class="btn warn" id="skipBtn" disabled></button>
+          </div>
+          <div id="sessionStats" class="status"></div>
+          <div id="leaderboard" class="stack"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>

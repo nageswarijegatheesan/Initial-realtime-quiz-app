@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join Quiz | Realtime Quiz</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark">Q</span>
+        <span>Realtime Quiz</span>
+      </a>
+    </header>
+
+    <main class="grid-2">
+      <section class="panel section stack" id="joinView">
+        <div>
+          <h1>Participant Login</h1>
+          <p class="muted">Join with your name and quiz code. Shared links fill the code automatically.</p>
+        </div>
+        <form id="joinForm" class="stack">
+          <label class="field"><span>Your Name</span><input name="name" maxlength="30" autocomplete="name" required></label>
+          <label class="field"><span>Quiz Code</span><input name="code" maxlength="12" required></label>
+          <button class="btn primary" type="submit">Start Quiz</button>
+        </form>
+        <div id="participantStatus" class="status"></div>
+      </section>
+
+      <section class="panel section stack hidden" id="quizView">
+        <div class="row between">
+          <div>
+            <h1 id="quizTitle">Quiz</h1>
+            <p class="muted" id="questionMeta">Waiting for admin to start.</p>
+          </div>
+          <div class="avatar" id="myAvatar">U</div>
+        </div>
+        <div class="timer"><div id="timerBar"></div></div>
+        <div id="questionArea" class="stack">
+          <div class="notice">You are in the lobby. The quiz will begin when the admin starts it.</div>
+        </div>
+      </section>
+
+      <section class="panel section stack">
+        <h2>Live Leaderboard</h2>
+        <div id="participantLeaderboard" class="stack">
+          <div class="notice">Scores appear after participants join.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+  <script src="/participant.js"></script>
+</body>
+</html>
