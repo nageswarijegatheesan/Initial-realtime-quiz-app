@@ -2,4 +2,7 @@ node_modules/
 data/*.json
 !.gitkeep
 .env
+
+# logs
+*.log
 npm-debug.log*
